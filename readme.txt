@@ -19,17 +19,17 @@ WooCommerce-qTML:
 2. Fixes the translation of product attributes and a number of other WooCommerce front-end strings.
 3. Fixes a number of redirection issues, for example, after posting product reviews.
 
-Woocommerce-qTML is provided with the following limitations:
+WooCommerce-qTML is provided with the following limitations:
 
-* As expected, WC-qtML helps keep the front-end of your shop properly localized. However, depending on your theme and installed plugins, certain strings or parts of your website might not be translated as expected.
+* The plugin helps keep the front-end of your shop properly localized. However, depending on your theme and installed plugins, certain strings or parts of your website might not be translated as expected.
 * The admin area is not streamlined for multilingual input. No separate input boxes exist for multilingual input – instead, WC categories & attributes must be entered using qTranslate tags, e.g. [:en]Color[:de]Farbe].
-* Experimental support for multilingual customer e-mails is included since version 1.0.0. However, extensions and 3rd party plugins that add content to e-mail notifications might not work out of the box. If you need assistance with a particular WC extension, please contact us for a quote.
-* WC-qTML is only recommended for use by developers, since, in most cases, the code will need to be modified according to the particular needs of each project. The plugin is a good head-start that will save developers a few hours of research – it is not a complete multi-language solution!
+* Experimental support for multilingual customer e-mails is included since version 1.0.0. However, extensions and 3rd party plugins that add content to e-mail notifications might not work out of the box. If you need assistance with a particular WC extension, please contact us.
+* WooCommerce-qTML is only recommended for use by developers, since, in most cases, the code will need to be modified according to the particular needs of each project. The plugin is a good head-start that will save developers a few hours of research – it is not a complete multi-language solution!
 
 Always use the plugin with the latest versions of WooCommerce / Wordpress. Using the plugin with older/newer versions of Woocommerce/Wordpress is not recommended, since new versions always introduce changes that may break the translation of a few strings, or, in extreme cases, even entire pages. You can always give it a shot and see if another combination works for you. However, we strongly encourage you to:
 
-1. Always backup your entire website before updating Woocommerce or WordPress.
-2. Check that a new version of Woocommerce-qTML exists before updating WC or WP and verify that the version you are upgrading to is supported.
+1. Always backup your entire website before updating WooCommerce or WordPress.
+2. Check that a new version of WooCommerce-qTML exists before updating WC or WP and verify that the version you are upgrading to is supported.
 
 WooCommerce-qTML will be updated as long as qTranslate and WooCommerce are active and maintained.
 
