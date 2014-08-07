@@ -21,7 +21,7 @@ WooCommerce-qTML:
 
 WooCommerce-qTML is provided with the following limitations:
 
-* As expected, WooCommerce-qtML helps keep the front-end of your shop properly localized. However, depending on your theme and installed plugins, certain strings or parts of your website might not be translated as expected.
+* As expected, WooCommerce-qTML helps keep the front-end of your shop properly localized. However, depending on your theme and installed plugins, certain strings or parts of your website might not be translated as expected.
 * The admin area is not streamlined for multilingual input. No separate input boxes exist for multilingual input – instead, WooCommerce categories & attributes must be entered using (m)qTranslate tags, e.g. [:en]Color[:de]Farbe].
 * Experimental support for multilingual customer e-mails is included since version 1.0.0. However, extensions and 3rd party plugins that add content to e-mail notifications might not work out of the box. If you need assistance with a particular WooCommerce extension, please contact us for a quote.
 * WooCommerce-qTML is only recommended for use by developers, since, in most cases, the code will need to be modified according to the particular needs of each project. The plugin is a good head-start that will save developers a few hours of research – it is not a complete multi-language solution!
