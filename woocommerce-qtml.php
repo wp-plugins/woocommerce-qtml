@@ -5,7 +5,7 @@
   Description: Add (m)qTranslate support to WooCommerce.
   Author: SomewhereWarm
   Author URI: http://www.somewherewarm.net
-  Version: 2.0.12
+  Version: 2.0.13
  */
 
 /**
@@ -27,7 +27,7 @@ if ( is_woocommerce_active() ) {
 
 	class WC_QTML {
 
-		var $version = '2.0.12';
+		var $version = '2.0.13';
 
 		var $enabled_languages;
 		var $enabled_locales;
@@ -38,20 +38,22 @@ if ( is_woocommerce_active() ) {
 
 		var $domain_switched = false;
 
-		var $email_textdomains = array(
-			'woocommerce' 			=> '/woocommerce/i18n/languages/woocommerce-',
-			'wc_shipment_tracking' 	=> '/woocommerce-shipment-tracking/languages/wc_shipment_tracking-',
-			'woocommerce-bto' 		=> '/woocommerce-composite-products/languages/woocommerce-bto-'
-		);
+		var $email_textdomains = array();
 
 		public function __construct() {
 
 			if ( in_array( 'qtranslate/qtranslate.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || in_array( 'mqtranslate/mqtranslate.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 
+				$email_textdomains = array(
+					'woocommerce' 			=> WP_PLUGIN_DIR . '/woocommerce/i18n/languages/woocommerce-',
+					'wc_shipment_tracking' 	=> WP_PLUGIN_DIR . '/woocommerce-shipment-tracking/languages/wc_shipment_tracking-',
+					'woocommerce-bto' 		=> WP_PLUGIN_DIR . '/woocommerce-composite-products/languages/woocommerce-bto-'
+				);
+
 				add_action( 'init', array( $this, 'wc_qtml_init' ), 0 );
 
 				// Forces default language in admin area
-				add_action( 'plugins_loaded', array($this, 'wc_qtml_plugins_init' ), 1 );
+				add_action( 'plugins_loaded', array( $this, 'wc_qtml_plugins_init' ), 1 );
 
 				add_action( 'plugins_loaded', array( $this, 'wc_qtml_plugins_loaded' ), 3 );
 
@@ -77,7 +79,7 @@ if ( is_woocommerce_active() ) {
 
 		function wc_qtml_plugins_loaded(){
 
-			global $q_config;
+			global $q_config, $woocommerce;
 
 			if ( ! session_id() ) {
 				session_start();
@@ -116,6 +118,10 @@ if ( is_woocommerce_active() ) {
 			// QT_URL_DOMAIN - pre-domain: 3
 
 			$this->mode = $q_config['url_mode'];
+
+			if ( version_compare( $woocommerce->version, '2.2' ) > 0 ) {
+				$this->email_textdomains[ 'woocommerce' ] = WP_LANG_DIR . '/woocommerce/woocommerce-';
+			}
 
 			// add textdomain names and locations for e-mail translations
 			$this->email_textdomains = apply_filters( 'wc_qtml_email_textdomain_locations', $this->email_textdomains );
@@ -755,7 +761,7 @@ if ( is_woocommerce_active() ) {
 		// resets admin locale to default only
 		function wc_qtml_admin_locale( $loc ) {
 			if ( is_admin() && ! is_ajax() ) {
-				$loc = $this->enabled_locales[ $this->default_language ];
+				$loc = $this->enabled_locales[ 'en' ];
 			}
 			return $loc;
 		}
@@ -773,7 +779,7 @@ if ( is_woocommerce_active() ) {
 
 				foreach ( $this->email_textdomains as $domain => $location ) {
 
-					$mofile = WP_PLUGIN_DIR . $location . $this->enabled_locales[ $this->current_language ] . '.mo';
+					$mofile = $location . $this->enabled_locales[ $this->current_language ] . '.mo';
 
 					if ( file_exists( $mofile ) ) {
 						unload_textdomain( $domain );
@@ -795,7 +801,7 @@ if ( is_woocommerce_active() ) {
 
 					foreach ( $this->email_textdomains as $domain => $location ) {
 
-						$mofile = WP_PLUGIN_DIR . $location . $this->enabled_locales[$order_lang] . '.mo';
+						$mofile = $location . $this->enabled_locales[$order_lang] . '.mo';
 
 						if ( file_exists( $mofile ) ) {
 							unload_textdomain( $domain );

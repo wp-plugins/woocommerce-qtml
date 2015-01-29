@@ -4,8 +4,8 @@ Contributors: franticpsyx
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=psyx@somewherewarm.net&item_name=Donation+for+WooCommerce+qTML
 Tags: woocommerce, qtranslate, mqtranslate, wc-qtml, woocommerce-qtml
 Requires at least: 3.7.0
-Tested up to: 4.0.0
-Stable tag: 2.0.12
+Tested up to: 4.1.0
+Stable tag: 2.0.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ Developers can checkout and contribute to the source code on the plugin's [GitHu
 
 
 == Changelog ==
+
+= 2.0.13 =
+* Fix - E-mail localization in WooCommerce 2.2+.
 
 = 2.0.12 =
 * Fix - Translate term descriptions.
@@ -162,5 +165,5 @@ Developers can checkout and contribute to the source code on the plugin's [GitHu
 
 == Upgrade Notice ==
 
-= 2.0.12 =
-Translate term descriptions.
+= 2.0.13 =
+Fixed e-mail localization issues in WooCommerce 2.2+.
