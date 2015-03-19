@@ -13,6 +13,8 @@ Add (m)qTranslate support to WooCommerce.
 
 == Description ==
 
+**Important**: WooCommerce-qTML is no longer developed and supported, since qTranslate and mqTranslate are no longer active. Both plugins have been deprecated and merged into [qTranslate-X](https://wordpress.org/plugins/qtranslate-x/), which aims to provide full WooCommerce support out of the box.
+
 WooCommerce-qTML:
 
 1. Ensures that (m)qTranslate will retain the selected language when moving between WooCommerce products, pages and endpoints.
